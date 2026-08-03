@@ -56,62 +56,7 @@ function ProjectLinks({ project }: { project: Project }) {
   );
 }
 
-function FeaturedProjectCard({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
-  return (
-    <article
-      className={`card card-hover flex flex-col p-6 sm:p-7 ${
-        index === 0 ? "lg:col-span-2 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:gap-8" : ""
-      }`}
-    >
-      <div className={index === 0 ? "lg:pr-4" : ""}>
-        <div className="mb-4 flex items-start justify-between gap-4">
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary-light">
-              {String(index + 1).padStart(2, "0")} · {project.role}
-            </p>
-            <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-          </div>
-          <ProjectLinks project={project} />
-        </div>
-
-        <p className="mb-5 text-sm leading-relaxed text-zinc-400 sm:text-base">
-          {project.description}
-        </p>
-
-        <ul className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <li key={tag} className="badge-primary rounded-md px-2.5 py-1 text-xs font-medium">
-              {tag}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <ul
-        className={`mt-6 space-y-2.5 ${
-          index === 0
-            ? "lg:mt-0 lg:border-l lg:border-primary/15 lg:pl-8"
-            : "border-t border-white/8 pt-5"
-        }`}
-      >
-        {project.highlights.map((item) => (
-          <li key={item} className="flex gap-3 text-sm leading-relaxed text-zinc-400">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cta" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
-}
-
-function MoreProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="card card-hover overflow-hidden">
       {"image" in project && project.image && (
@@ -146,36 +91,20 @@ function MoreProjectCard({ project }: { project: Project }) {
 }
 
 export default function Projects() {
-  const featured = projects.filter((p) => p.featured);
-  const other = projects.filter((p) => !p.featured);
-
   return (
     <section id="projects" className="section-shell px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Projects"
-          title="Selected work"
+          title="Things I've built"
           description="Backend systems, APIs, and full-stack applications — from IoT platforms to web products."
         />
 
-        <div className="mb-12 grid gap-5 lg:grid-cols-2">
-          {featured.map((project, index) => (
-            <FeaturedProjectCard key={project.title} project={project} index={index} />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
-
-        {other.length > 0 && (
-          <>
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-400">
-              More projects
-            </h3>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {other.map((project) => (
-                <MoreProjectCard key={project.title} project={project} />
-              ))}
-            </div>
-          </>
-        )}
       </div>
     </section>
   );

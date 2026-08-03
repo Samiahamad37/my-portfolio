@@ -24,7 +24,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "9+", label: "Projects built" },
+  { value: "8+", label: "Projects built" },
   { value: "Final Year", label: "BSc at Ardhi University" },
   { value: "3", label: "Industry conferences attended" },
 ];
@@ -54,19 +54,19 @@ export const skills = [
 
 export const projects = [
   {
-    title: "IoT Air Quality Monitoring System",
+    title: "Air Quality Monitoring System",
     role: "Backend Developer",
     description:
-      "Real-time environmental monitoring platform with sensor ingestion, API endpoints, and time-series data pipelines for air quality analytics.",
+      "IoT platform for real-time air quality tracking in Dar es Salaam — sensor data ingestion, REST APIs, and live analytics dashboards.",
     highlights: [
       "Built REST APIs for device telemetry and dashboard data",
       "Designed data pipelines for sensor ingestion into InfluxDB",
       "Supported real-time monitoring and historical trend analysis",
     ],
-    tags: ["Django", "InfluxDB", "Data Pipelines", "REST APIs"],
-    liveUrl: "",
+    tags: ["Django", "InfluxDB", "IoT", "REST APIs"],
+    image: "/projects/air-quality.jpg",
+    liveUrl: "https://airquality.tlms.live/",
     githubUrl: "",
-    featured: true,
   },
   {
     title: "Task Manager System",
@@ -79,24 +79,9 @@ export const projects = [
       "Exposed clean REST endpoints via Django REST Framework",
     ],
     tags: ["Django", "DRF", "PostgreSQL", "REST APIs"],
+    image: "/projects/task-manager.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: true,
-  },
-  {
-    title: "E-Ticketing System",
-    role: "System Designer & Backend Developer",
-    description:
-      "End-to-end electronic ticketing platform covering booking flows, payment integration points, and backend service architecture.",
-    highlights: [
-      "Mapped system architecture and service boundaries",
-      "Defined API contracts for booking and ticket validation",
-      "Planned scalable backend structure for high-traffic events",
-    ],
-    tags: ["System Design", "Backend", "APIs", "PostgreSQL"],
-    liveUrl: "",
-    githubUrl: "",
-    featured: false,
   },
   {
     title: "Restaurant Website",
@@ -112,7 +97,6 @@ export const projects = [
     image: "/projects/restaurant.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
   {
     title: "Real Estate System",
@@ -128,7 +112,6 @@ export const projects = [
     image: "/projects/realestate.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
   {
     title: "Budget Tracker",
@@ -144,7 +127,6 @@ export const projects = [
     image: "/projects/budget-tracker.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
   {
     title: "Hostel Management System",
@@ -160,7 +142,6 @@ export const projects = [
     image: "/projects/hostel.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
   {
     title: "E-Book Hub",
@@ -176,7 +157,6 @@ export const projects = [
     image: "/projects/ebook.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
   {
     title: "Family Tree Management",
@@ -192,7 +172,6 @@ export const projects = [
     image: "/projects/family-tree.jpg",
     liveUrl: "",
     githubUrl: "",
-    featured: false,
   },
 ];
 
