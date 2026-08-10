@@ -24,7 +24,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "8+", label: "Projects built" },
+  { value: "9+", label: "Projects built" },
   { value: "Final Year", label: "BSc at Ardhi University" },
   { value: "3", label: "Industry conferences attended" },
 ];
@@ -82,6 +82,21 @@ export const projects = [
     image: "/projects/task-manager.jpg",
     liveUrl: "",
     githubUrl: "",
+  },
+  {
+    title: "TruthGuard AI",
+    role: "Full-Stack Developer",
+    description:
+      "AI-powered misinformation detection platform that verifies text, URLs, and media — with trust scores, fact checks, evidence sources, and a full analysis dashboard.",
+    highlights: [
+      "Built Next.js API routes with PostgreSQL and Prisma for auth and analysis history",
+      "Designed verify-content flows for text, URL, image, PDF, and video uploads",
+      "Implemented dashboard, reports, notifications, and JWT-based authentication",
+    ],
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "AI", "Prisma"],
+    image: "/projects/truthguard-ai.jpg",
+    liveUrl: "",
+    githubUrl: "https://github.com/Samiahamad37/Truthguard-AI",
   },
   {
     title: "Restaurant Website",
