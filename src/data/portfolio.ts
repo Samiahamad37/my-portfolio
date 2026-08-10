@@ -223,12 +223,12 @@ export const conferences = [
   },
   {
     name: "BIP — Blended Intensive Programme",
-    year: "2025",
+    year: "2026",
     description: "International academic collaboration, cross-cultural teamwork, and agile project delivery.",
   },
   {
     name: "EnhanceMind — Women in AI",
-    year: "2025",
+    year: "2026",
     description: "AI trends, ethical considerations, and pathways for women in technology leadership.",
   },
 ];
