@@ -24,7 +24,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "9+", label: "Projects built" },
+  { value: "10+", label: "Projects built" },
   { value: "Final Year", label: "BSc at Ardhi University" },
   { value: "3", label: "Industry conferences attended" },
 ];
@@ -97,6 +97,21 @@ export const projects = [
     image: "/projects/truthguard-ai.jpg",
     liveUrl: "",
     githubUrl: "https://github.com/Samiahamad37/Truthguard-AI",
+  },
+  {
+    title: "CyberGuard AI Platform",
+    role: "Full-Stack Developer",
+    description:
+      "AI-driven cybersecurity platform for threat detection, phishing analysis, and security monitoring — with real-time alerts, risk scoring, and an intelligent SOC-style dashboard.",
+    highlights: [
+      "Built threat detection flows for suspicious URLs, emails, and network activity",
+      "Designed a security dashboard with live alerts, risk scores, and incident tracking",
+      "Integrated AI-assisted analysis for proactive cyber defense and user notifications",
+    ],
+    tags: ["Next.js", "TypeScript", "AI", "Cybersecurity", "PostgreSQL"],
+    image: "/projects/cyberguard-ai.jpg",
+    liveUrl: "",
+    githubUrl: "",
   },
   {
     title: "Restaurant Website",
