@@ -110,7 +110,7 @@ export const projects = [
     ],
     tags: ["Next.js", "TypeScript", "AI", "Cybersecurity", "PostgreSQL"],
     image: "/projects/cyberguard-ai.jpg",
-    liveUrl: "",
+    liveUrl: "https://cyberguard-platform-fw6zcr49b-samiahamad37s-projects.vercel.app/",
     githubUrl: "",
   },
   {
