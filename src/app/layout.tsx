@@ -10,20 +10,20 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Samia Adam Hamad — Full-Stack Developer",
   description:
-    "Backend-focused full-stack developer building scalable systems, APIs, and data-driven applications with Django, Node.js, Go, and modern web technologies.",
+    "Full-stack developer building web applications, APIs, and AI-powered platforms with Django, Next.js, Node.js, Go, and modern web technologies.",
   keywords: [
     "portfolio",
     "developer",
-    "Django",
     "full-stack",
-    "backend",
+    "Django",
+    "Next.js",
     "Tanzania",
   ],
   authors: [{ name: "Samia Adam Hamad" }],
   openGraph: {
     title: "Samia Adam Hamad — Full-Stack Developer",
     description:
-      "Backend-focused full-stack developer building scalable systems, APIs, and data-driven applications.",
+      "Full-stack developer building web applications, APIs, and AI-powered platforms.",
     type: "website",
     images: [{ url: "/profile.png", width: 800, height: 800, alt: "Samia Adam Hamad" }],
   },
