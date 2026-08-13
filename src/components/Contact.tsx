@@ -9,7 +9,7 @@ export default function Contact() {
         <SectionHeader
           label="Contact"
           title="Let's build something together"
-          description="Open to full-time roles, freelance work, and collaborations. Reach out — I typically respond within 24 hours."
+          description="Have a project in mind or want to connect? Send a message — I typically respond within 24 hours."
           align="center"
         />
 
