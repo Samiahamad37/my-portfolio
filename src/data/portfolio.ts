@@ -95,7 +95,7 @@ export const projects = [
     ],
     tags: ["Next.js", "TypeScript", "PostgreSQL", "AI", "Prisma"],
     image: "/projects/truthguard-ai.jpg",
-    liveUrl: "",
+    liveUrl: "https://truthguard-ai-gamma.vercel.app/",
     githubUrl: "https://github.com/Samiahamad37/Truthguard-AI",
   },
   {
