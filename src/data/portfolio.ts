@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Full-Stack Developer",
   tagline:
     "I build web applications, APIs, and AI-powered platforms — from backend services and databases to polished, production-ready user experiences.",
-  email: "hamadsamia37@gmail.com",
+  email: "hamadsamia37@icloud.com",
   phone: "+255 714065166",
   location: "Dar es Salaam, Tanzania",
   availability: "Open to full-time roles, freelance & collaborations",
