@@ -29,28 +29,48 @@ function ProjectLinks({ project }: { project: Project }) {
   if (!project.liveUrl && !project.githubUrl) return null;
 
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap items-center gap-3">
       {project.liveUrl && (
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${project.title} live demo`}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-zinc-500 transition-colors hover:border-cta/40 hover:text-cta"
-        >
-          <ExternalLinkIcon />
-        </a>
+        <>
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${project.title} live demo`}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-zinc-500 transition-colors hover:border-cta/40 hover:text-cta"
+          >
+            <ExternalLinkIcon />
+          </a>
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium text-cta transition-colors hover:text-cta-light"
+          >
+            Live demo
+          </a>
+        </>
       )}
       {project.githubUrl && (
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${project.title} source code`}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-zinc-500 transition-colors hover:border-primary/40 hover:text-primary-light"
-        >
-          <GitHubIcon />
-        </a>
+        <>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${project.title} source code`}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-zinc-500 transition-colors hover:border-primary/40 hover:text-primary-light"
+          >
+            <GitHubIcon />
+          </a>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium text-primary-light transition-colors hover:text-white"
+          >
+            Source code
+          </a>
+        </>
       )}
     </div>
   );
@@ -97,7 +117,7 @@ export default function Projects() {
         <SectionHeader
           label="Projects"
           title="Things I've built"
-          description="Backend systems, APIs, and full-stack applications — from IoT platforms to web products."
+          description="Full-stack applications, AI platforms, and web products — from IoT dashboards to production-ready SaaS tools."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

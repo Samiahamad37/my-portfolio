@@ -2,13 +2,13 @@ export const siteConfig = {
   name: "Samia Adam Hamad",
   shortName: "Samia",
   initials: "SAH",
-  title: "Backend-Focused Full-Stack Developer",
+  title: "Full-Stack Developer",
   tagline:
-    "I design and build scalable backends, REST APIs, and data pipelines — turning complex requirements into reliable, production-ready systems.",
+    "I build web applications, APIs, and AI-powered platforms — from backend services and databases to polished, production-ready user experiences.",
   email: "hamadsamia37@gmail.com",
   phone: "+255 714065166",
   location: "Dar es Salaam, Tanzania",
-  availability: "Open to internships, freelance & full-time roles",
+  availability: "Open to full-time roles, freelance & collaborations",
   social: {
     github: "https://github.com/Samiahamad37",
   },
@@ -25,8 +25,8 @@ export const navLinks = [
 
 export const stats = [
   { value: "10+", label: "Projects built" },
-  { value: "Final Year", label: "BSc at Ardhi University" },
-  { value: "3", label: "Industry conferences attended" },
+  { value: "2026", label: "BSc graduate · Ardhi University" },
+  { value: "3+", label: "Industry conferences attended" },
 ];
 
 export const skills = [
@@ -209,9 +209,9 @@ export const education = [
   {
     degree: "BSc Information Systems Management",
     institution: "Ardhi University",
-    period: "Final Year",
+    period: "Graduated 2026",
     description:
-      "Coursework in software engineering, database systems, information systems design, and enterprise application development.",
+      "Graduated with a focus on software engineering, database systems, information systems design, and enterprise application development.",
   },
 ];
 
@@ -234,6 +234,6 @@ export const conferences = [
 ];
 
 export const aboutSummary = [
-  "I'm a backend-focused full-stack developer specializing in Django, Node.js, Go, and data-driven systems. I build APIs, data pipelines, and backend services that are structured for growth and easy to maintain.",
-  "From IoT monitoring platforms to REST-powered web apps, I focus on clean architecture, solid database design, and shipping software that solves real problems — not just demos.",
+  "I'm a full-stack developer who builds end-to-end products with Django, Next.js, Node.js, Go, and modern web technologies — from APIs and databases to responsive interfaces users actually enjoy.",
+  "A recent BSc graduate from Ardhi University, I've shipped IoT platforms, AI verification tools, and cybersecurity dashboards — focusing on clean architecture, solid engineering, and software that solves real problems.",
 ];
