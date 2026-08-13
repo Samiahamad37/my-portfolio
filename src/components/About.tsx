@@ -8,8 +8,8 @@ export default function About() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="About"
-          title="Engineering reliable systems"
-          description="Backend developer with a full-stack mindset — focused on APIs, data, and architecture that scales."
+          title="Building end-to-end products"
+          description="Full-stack developer with experience across APIs, databases, AI platforms, and user-facing applications."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
@@ -43,8 +43,10 @@ export default function About() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary-light">
                   Education
                 </p>
-                <p className="mt-2 text-sm font-medium text-white">BSc · Final Year</p>
-                <p className="text-sm text-zinc-500">Ardhi University</p>
+                <p className="mt-2 text-sm font-medium text-white">{education[0].degree}</p>
+                <p className="text-sm text-zinc-500">
+                  {education[0].institution} · {education[0].period}
+                </p>
               </div>
             </div>
           </div>
