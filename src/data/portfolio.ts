@@ -8,7 +8,6 @@ export const siteConfig = {
   email: "hamadsamia37@icloud.com",
   phone: "+255 714065166",
   location: "Dar es Salaam, Tanzania",
-  availability: "Open to full-time roles, freelance & collaborations",
   social: {
     github: "https://github.com/Samiahamad37",
   },

@@ -22,11 +22,6 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full badge-primary px-4 py-1.5 text-sm animate-fade-in">
-            <span className="h-1.5 w-1.5 rounded-full bg-cta animate-pulse" />
-            {siteConfig.availability}
-          </div>
-
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-zinc-500 animate-fade-in-up">
             {siteConfig.location}
           </p>
