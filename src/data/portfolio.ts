@@ -188,19 +188,19 @@ export const projects = [
     githubUrl: "",
   },
   {
-    title: "Family Tree Management",
+    title: "Kinfolk",
     role: "Full-Stack Developer",
     description:
-      "A genealogy management app for tracking ancestry, family relationships, and historical records across generations.",
+      "A family tree platform for preserving your family story — build interactive trees, gather photos and documents, and keep generations of memories in one genealogy workspace.",
     highlights: [
-      "Mapped family relationships across multiple generations",
-      "Stored and organized historical family records",
-      "Presented lineage data in an easy-to-navigate view",
+      "Built interactive family trees with pan, zoom, search, and member profiles",
+      "Implemented auth, dashboard, timeline, photos, stories, and documents with Server Actions",
+      "Designed PostgreSQL schema with Prisma for multi-generation genealogy data",
     ],
-    tags: ["PHP", "MySQL", "Web Development"],
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS"],
     image: "/projects/family-tree.jpg",
-    liveUrl: "",
-    githubUrl: "",
+    liveUrl: "https://kinfolk-five.vercel.app/",
+    githubUrl: "https://github.com/Samiahamad37/Kinfolk",
   },
 ];
 
