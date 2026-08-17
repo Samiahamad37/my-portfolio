@@ -111,6 +111,12 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Projects() {
+  const sortedProjects = [...projects].sort((a, b) => {
+    const aHasLive = a.liveUrl ? 1 : 0;
+    const bHasLive = b.liveUrl ? 1 : 0;
+    return bHasLive - aHasLive;
+  });
+
   return (
     <section id="projects" className="section-shell px-6 py-24">
       <div className="mx-auto max-w-6xl">
@@ -121,7 +127,7 @@ export default function Projects() {
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {sortedProjects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
