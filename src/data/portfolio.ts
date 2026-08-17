@@ -173,19 +173,19 @@ export const projects = [
     githubUrl: "https://github.com/Samiahamad37/Hostel-management-system/tree/main/hostel",
   },
   {
-    title: "E-Book Hub",
+    title: "ResQ — Emergency Response",
     role: "Full-Stack Developer",
     description:
-      "An online bookstore where customers can browse, order, and purchase digital and physical books through a simple catalog experience.",
+      "Emergency coordination platform connecting citizens, dispatchers, ambulance teams, police, fire services, and hospitals in one real-time system for faster response.",
     highlights: [
-      "Built a browsable book catalog with category filters",
-      "Supported order placement and purchase flows",
-      "Designed a clean storefront for book discovery",
+      "Built incident reporting with GPS, photos, and routing to the right service",
+      "Designed live dispatch dashboard with maps, responder availability, and hospital capacity",
+      "Integrated AI-assisted classification with human oversight for authorized dispatchers",
     ],
-    tags: ["HTML", "CSS", "PHP", "MySQL"],
-    image: "/projects/ebook.jpg",
-    liveUrl: "",
-    githubUrl: "",
+    tags: ["Next.js", "TypeScript", "Real-Time", "Emergency Systems"],
+    image: "/projects/rescue.jpg",
+    liveUrl: "https://frontend-six-plum-67.vercel.app/",
+    githubUrl: "https://github.com/Samiahamad37/Rescue",
   },
   {
     title: "Kinfolk",
