@@ -80,7 +80,7 @@ export const projects = [
     tags: ["Django", "DRF", "PostgreSQL", "REST APIs"],
     image: "/projects/task-manager.jpg",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/Samiahamad37/task-manager",
   },
   {
     title: "TruthGuard AI",
@@ -155,7 +155,7 @@ export const projects = [
     tags: ["JavaScript", "HTML", "CSS"],
     image: "/projects/budget-tracker.jpg",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/Samiahamad37/budget_tracker",
   },
   {
     title: "Hostel Management System",
@@ -170,7 +170,7 @@ export const projects = [
     tags: ["PHP", "MySQL", "System Design"],
     image: "/projects/hostel.jpg",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/Samiahamad37/Hostel-management-system/tree/main/hostel",
   },
   {
     title: "E-Book Hub",
