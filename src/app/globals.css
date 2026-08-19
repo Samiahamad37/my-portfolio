@@ -3,19 +3,19 @@
 @theme inline {
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 
-  /* Electric Purple & Neon Mint — 60-30-10 palette */
-  --color-surface: #0f0e17;
-  --color-surface-elevated: #16151f;
-  --color-surface-card: #12111a;
+  /* Warm charcoal + amber — restrained, human palette */
+  --color-surface: #121110;
+  --color-surface-elevated: #1c1a18;
+  --color-surface-card: #181614;
 
-  --color-primary: #9d00ff;
-  --color-primary-light: #b44dff;
-  --color-primary-muted: rgb(157 0 255 / 0.14);
+  --color-primary: #c9956a;
+  --color-primary-light: #e4b887;
+  --color-primary-muted: rgb(201 149 106 / 0.14);
 
-  --color-cta: #00ffcc;
-  --color-cta-light: #5cffdf;
-  --color-cta-muted: rgb(0 255 204 / 0.12);
-  --color-cta-foreground: #0f0e17;
+  --color-cta: #f0ebe3;
+  --color-cta-light: #faf8f5;
+  --color-cta-muted: rgb(240 235 227 / 0.08);
+  --color-cta-foreground: #121110;
 
   --color-border-subtle: rgb(255 255 255 / 0.08);
 }
@@ -27,13 +27,13 @@ html {
 body {
   background-color: var(--color-surface);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgb(157 0 255 / 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgb(0 255 204 / 0.06), transparent),
-    radial-gradient(ellipse 50% 40% at 0% 100%, rgb(157 0 255 / 0.05), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgb(201 149 106 / 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgb(240 235 227 / 0.03), transparent),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgb(201 149 106 / 0.04), transparent);
 }
 
 ::selection {
-  background-color: rgb(157 0 255 / 0.4);
+  background-color: rgb(201 149 106 / 0.35);
   color: white;
 }
 
@@ -74,7 +74,7 @@ body {
   border: 1px solid var(--color-border-subtle);
   background: linear-gradient(
     180deg,
-    rgb(157 0 255 / 0.04) 0%,
+    rgb(201 149 106 / 0.03) 0%,
     rgb(255 255 255 / 0.02) 100%
   );
   border-radius: 1rem;
@@ -85,15 +85,15 @@ body {
 }
 
 .card-hover:hover {
-  border-color: rgb(157 0 255 / 0.35);
+  border-color: rgb(201 149 106 / 0.3);
   box-shadow:
     0 8px 32px rgb(0 0 0 / 0.35),
-    0 0 24px rgb(157 0 255 / 0.08);
+    0 0 24px rgb(201 149 106 / 0.06);
   transform: translateY(-2px);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #b44dff 45%, #00ffcc 100%);
+  background: linear-gradient(135deg, #faf8f5 0%, #e4b887 55%, #c9956a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -107,22 +107,22 @@ body {
 
 .btn-cta:hover {
   background-color: var(--color-cta-light);
-  box-shadow: 0 8px 24px rgb(0 255 204 / 0.25);
+  box-shadow: 0 8px 24px rgb(240 235 227 / 0.12);
 }
 
 .badge-primary {
-  border: 1px solid rgb(157 0 255 / 0.25);
-  background: rgb(157 0 255 / 0.12);
-  color: #c77dff;
+  border: 1px solid rgb(201 149 106 / 0.25);
+  background: rgb(201 149 106 / 0.1);
+  color: #e4b887;
 }
 
 .badge-cta {
-  border: 1px solid rgb(0 255 204 / 0.2);
-  background: rgb(0 255 204 / 0.1);
-  color: #00ffcc;
+  border: 1px solid rgb(240 235 227 / 0.15);
+  background: rgb(240 235 227 / 0.08);
+  color: #f0ebe3;
 }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0f0e17; }
-::-webkit-scrollbar-thumb { background: #2a2838; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #9d00ff; }
+::-webkit-scrollbar-track { background: #121110; }
+::-webkit-scrollbar-thumb { background: #2e2b28; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #c9956a; }
