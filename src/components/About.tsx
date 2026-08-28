@@ -39,7 +39,7 @@ export default function About() {
                 </p>
                 <p className="mt-2 text-sm font-medium text-white">{siteConfig.location}</p>
               </div>
-              <div className="card p-5">
+              {/* <div className="card p-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary-light">
                   Education
                 </p>
@@ -47,7 +47,7 @@ export default function About() {
                 <p className="text-sm text-zinc-500">
                   {education[0].institution} · {education[0].period}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
 
