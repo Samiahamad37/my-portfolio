@@ -4,7 +4,7 @@ export const siteConfig = {
   initials: "SAH",
   title: "Full-Stack Developer",
   tagline:
-    "I build web applications, APIs, and AI-powered platforms — from backend services and databases to polished, production-ready user experiences.",
+    "I build web applications, APIs, and AI-powered platforms from backend services and databases to polished, production-ready user experiences.",
   email: "hamadsamia37@icloud.com",
   phone: "+255 714065166",
   location: "Dar es Salaam, Tanzania",
@@ -56,7 +56,7 @@ export const projects = [
     title: "Air Quality Monitoring System",
     role: "Backend Developer",
     description:
-      "IoT platform for real-time air quality tracking in Dar es Salaam — sensor data ingestion, REST APIs, and live analytics dashboards.",
+      "IoT platform for real-time air quality tracking in Dar es Salaam with sensor data ingestion, REST APIs, and live analytics dashboards.",
     highlights: [
       "Built REST APIs for device telemetry and dashboard data",
       "Designed data pipelines for sensor ingestion into InfluxDB",
@@ -86,7 +86,7 @@ export const projects = [
     title: "TruthGuard AI",
     role: "Full-Stack Developer",
     description:
-      "AI-powered misinformation detection platform that verifies text, URLs, and media — with trust scores, fact checks, evidence sources, and a full analysis dashboard.",
+      "AI-powered misinformation detection platform that verifies text, URLs, and media with trust scores, fact checks, evidence sources, and a full analysis dashboard.",
     highlights: [
       "Built Next.js API routes with PostgreSQL and Prisma for auth and analysis history",
       "Designed verify-content flows for text, URL, image, PDF, and video uploads",
@@ -101,7 +101,7 @@ export const projects = [
     title: "CyberGuard AI Platform",
     role: "Full-Stack Developer",
     description:
-      "AI-driven cybersecurity platform for threat detection, phishing analysis, and security monitoring — with real-time alerts, risk scoring, and an intelligent SOC-style dashboard.",
+      "AI-driven cybersecurity platform for threat detection, phishing analysis, and security monitoring with real-time alerts, risk scoring, and an intelligent SOC-style dashboard.",
     highlights: [
       "Built threat detection flows for suspicious URLs, emails, and network activity",
       "Designed a security dashboard with live alerts, risk scores, and incident tracking",
@@ -110,7 +110,7 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "AI", "Cybersecurity", "PostgreSQL"],
     image: "/projects/cyberguard-ai.jpg",
     liveUrl: "https://cyberguard-platform-fw6zcr49b-samiahamad37s-projects.vercel.app/",
-    githubUrl: "",
+    githubUrl: "https://github.com/Samiahamad37/cyberguard-platform",
   },
   {
     title: "Restaurant Website",
@@ -173,7 +173,7 @@ export const projects = [
     githubUrl: "https://github.com/Samiahamad37/Hostel-management-system/tree/main/hostel",
   },
   {
-    title: "ResQ — Emergency Response",
+    title: "ResQ Emergency Response",
     role: "Full-Stack Developer",
     description:
       "Emergency coordination platform connecting citizens, dispatchers, ambulance teams, police, fire services, and hospitals in one real-time system for faster response.",
@@ -191,7 +191,7 @@ export const projects = [
     title: "Kinfolk",
     role: "Full-Stack Developer",
     description:
-      "A family tree platform for preserving your family story — build interactive trees, gather photos and documents, and keep generations of memories in one genealogy workspace.",
+      "A family tree platform for preserving your family story. Build interactive trees, gather photos and documents, and keep generations of memories in one genealogy workspace.",
     highlights: [
       "Built interactive family trees with pan, zoom, search, and member profiles",
       "Implemented auth, dashboard, timeline, photos, stories, and documents with Server Actions",
@@ -221,18 +221,18 @@ export const conferences = [
     description: "Django best practices, scalable architecture, and the East African Python community.",
   },
   {
-    name: "BIP — Blended Intensive Programme",
+    name: "BIP Blended Intensive Programme",
     year: "2026",
     description: "International academic collaboration, cross-cultural teamwork, and agile project delivery.",
   },
   {
-    name: "EnhanceMind — Women in AI",
+    name: "EnhanceMind Women in AI",
     year: "2026",
     description: "AI trends, ethical considerations, and pathways for women in technology leadership.",
   },
 ];
 
 export const aboutSummary = [
-  "I'm a full-stack developer who builds end-to-end products with Django, Next.js, Node.js, Go, and modern web technologies — from APIs and databases to responsive interfaces users actually enjoy.",
-  "A recent BSc graduate from Ardhi University, I've shipped IoT platforms, AI verification tools, and cybersecurity dashboards — focusing on clean architecture, solid engineering, and software that solves real problems.",
+  "I'm a full-stack developer who builds end-to-end products with Django, Next.js, Node.js, Go, and modern web technologies from APIs and databases to responsive interfaces users actually enjoy.",
+  "A recent BSc graduate from Ardhi University, I've shipped IoT platforms, AI verification tools, and cybersecurity dashboards focusing on clean architecture, solid engineering, and software that solves real problems.",
 ];
