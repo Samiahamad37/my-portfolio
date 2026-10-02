@@ -214,21 +214,40 @@ export const education = [
   },
 ];
 
+
 export const conferences = [
   {
     name: "DjangoCon Arusha 2025",
     year: "2025",
-    description: "Django best practices, scalable architecture, and the East African Python community.",
+    description:
+      "Django best practices, scalable architecture, and the East African Python community.",
+    images: [
+      "/images/conferences/djangocon-1.jpg",
+      "/images/conferences/djangocon-2.jpg",
+      "/images/conferences/djangocon-3.jpg",
+    ],
   },
   {
     name: "BIP Blended Intensive Programme",
     year: "2026",
-    description: "International academic collaboration, cross-cultural teamwork, and agile project delivery.",
+    description:
+      "International academic collaboration, cross-cultural teamwork, and agile project delivery.",
+    images: [
+      "/images/conferences/bip-1.jpg",
+      "/images/conferences/bip-2.jpg",
+      "/images/conferences/bip-3.jpg",
+    ],
   },
   {
     name: "EnhanceMind Women in AI",
     year: "2026",
-    description: "AI trends, ethical considerations, and pathways for women in technology leadership.",
+    description:
+      "AI trends, ethical considerations, and pathways for women in technology leadership.",
+    images: [
+      "/images/conferences/ai-1.jpg",
+      "/images/conferences/ai-2.jpg",
+      "/images/conferences/ai-3.jpg",
+    ],
   },
 ];
 
