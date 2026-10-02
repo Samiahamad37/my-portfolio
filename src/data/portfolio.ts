@@ -139,8 +139,8 @@ export const projects = [
     ],
     tags: ["PHP", "MySQL", "Web Development"],
     image: "/projects/realestate.jpg",
-    liveUrl: "",
-    githubUrl: "",
+    liveUrl: "https://estate-hub-navy.vercel.app/",
+    githubUrl: "https://github.com/Samiahamad37/EstateHub",
   },
   {
     title: "Budget Tracker",
@@ -170,7 +170,7 @@ export const projects = [
     tags: ["PHP", "MySQL", "System Design"],
     image: "/projects/hostel.jpg",
     liveUrl: "",
-    githubUrl: "https://github.com/Samiahamad37/Hostel-management-system/tree/main/hostel",
+    githubUrl: "https://github.com/Samiahamad37/Hostel-management-system",
   },
   {
     title: "ResQ Emergency Response",
