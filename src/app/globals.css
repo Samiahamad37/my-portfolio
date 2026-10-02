@@ -68,14 +68,59 @@ body {
 
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(calc(-50% - (var(--marquee-gap) / 2))); }
+}
+
+.section-shell {
+  border-top: 1px solid var(--color-border-subtle);
+  position: relative;
+}
+
+.section-shell > div {
+  position: relative;
+  z-index: 1;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.event-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.75rem, 1.6vw, 1.1rem);
+}
+
+.event-badge {
+  display: flex;
+  height: clamp(2.2rem, 3vw, 2.7rem);
+  width: clamp(2.2rem, 3vw, 2.7rem);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  border: 1px solid rgb(201 149 106 / 0.28);
+  background: linear-gradient(135deg, rgb(201 149 106 / 0.2), rgb(201 149 106 / 0.08));
+  color: #f4d5ad;
+  font-size: clamp(0.62rem, 1.4vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.event-gallery {
+  width: 100%;
+  margin-left: 0;
 }
 
 .marquee-shell {
   position: relative;
   overflow: hidden;
-  border-radius: 1.2rem;
-  padding: 0.8rem 0.3rem 0.8rem;
+  isolation: isolate;
+  contain: paint;
+  border-radius: clamp(1rem, 1.8vw, 1.2rem);
+  padding: clamp(0.7rem, 1.8vw, 0.9rem) clamp(0.2rem, 1vw, 0.35rem);
   background:
     linear-gradient(180deg, rgb(19 19 20 / 0.96), rgb(12 11 12 / 0.9)),
     linear-gradient(135deg, rgb(201 149 106 / 0.12), transparent 45%, rgb(70 124 203 / 0.08));
@@ -96,7 +141,7 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 18%;
+  width: clamp(1.5rem, 11%, 4.2rem);
   z-index: 2;
   pointer-events: none;
 }
@@ -116,12 +161,35 @@ body {
 }
 
 .marquee-track {
+  --marquee-gap: clamp(0.55rem, 1.3vw, 0.8rem);
   display: flex;
   width: max-content;
-  gap: 0.7rem;
+  gap: var(--marquee-gap);
   padding-right: 0.35rem;
-  animation: marquee-scroll 22s linear infinite;
+  animation: marquee-scroll 28s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
   will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .event-gallery {
+    margin-left: clamp(2.5rem, 4vw, 3.4rem);
+    width: calc(100% - clamp(2.5rem, 4vw, 3.4rem));
+  }
+}
+
+@media (max-width: 767px) {
+  .event-meta {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .event-badge {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
 }
 
 .marquee-shell:hover .marquee-track {
@@ -131,7 +199,7 @@ body {
 .marquee-item {
   position: relative;
   width: 180px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 0.08);
   border-radius: 0.95rem;
@@ -140,6 +208,9 @@ body {
     0 12px 28px rgb(0 0 0 / 0.28),
     0 0 20px rgb(201 149 106 / 0.12),
     inset 0 0 0 1px rgb(255 255 255 / 0.02);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -186,10 +257,6 @@ body {
     animation: none;
     transform: none;
   }
-}
-
-.section-shell {
-  border-top: 1px solid var(--color-border-subtle);
 }
 
 .card {
