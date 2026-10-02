@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutSummary, conferences, education, siteConfig } from "@/data/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ProfileImage from "@/components/ui/ProfileImage";
@@ -85,16 +86,41 @@ export default function About() {
                 {conferences.map((event) => (
                   <article
                     key={event.name}
-                    className="card card-hover flex gap-4 p-5"
+                    className="card card-hover overflow-hidden p-4 md:p-5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg badge-primary text-xs font-bold">
-                      {event.year}
-                    </div>
-                    <div>
-                      <p className="font-medium text-white">{event.name}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-zinc-400">
-                        {event.description}
-                      </p>
+                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
+                      <div className="flex items-start gap-3 lg:w-[46%]">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg badge-primary text-xs font-bold">
+                          {event.year}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-medium text-white">{event.name}</p>
+                          <p className="mt-1 text-sm leading-relaxed text-zinc-400">
+                            {event.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      {event.images.length > 0 && (
+                        <div className="marquee-shell lg:w-[54%]">
+                          <div className="marquee-track">
+                            {[...event.images, ...event.images].map((image, index) => (
+                              <div
+                                key={`${event.name}-${index}`}
+                                className="marquee-item relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-zinc-900"
+                              >
+                                <Image
+                                  src={image}
+                                  alt={`${event.name} conference photo ${index + 1}`}
+                                  fill
+                                  sizes="(max-width: 768px) 45vw, 220px"
+                                  className="object-cover transition-transform duration-300 hover:scale-105"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </article>
                 ))}
