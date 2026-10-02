@@ -220,9 +220,10 @@ export const conferences = [
     description:
       "Django best practices, scalable architecture, and the East African Python community.",
     images: [
-      "/images/conferences/djangocon-1.jpg",
-      "/images/conferences/djangocon-2.jpg",
+      "/images/conferences/djangocon-1.png",
+      "/images/conferences/djangocon-2.png.jpeg",
       "/images/conferences/djangocon-3.png",
+      "/images/conferences/djangocon-4.png.jpeg",
     ],
   },
   {
@@ -231,9 +232,10 @@ export const conferences = [
     description:
       "International academic collaboration, cross-cultural teamwork, and agile project delivery.",
     images: [
-      "/images/conferences/bip-1.jpg",
-      "/images/conferences/bip-2.jpg",
-      "/images/conferences/bip-3.jpg",
+      "/images/conferences/bip-2.jpg.jpeg",
+      "/images/conferences/bip-3.jpg.jpeg",
+      "/images/conferences/bip-4.jpeg",
+      "/images/conferences/bip-5.jpeg",
     ],
   },
   {
@@ -242,9 +244,22 @@ export const conferences = [
     description:
       "AI trends, ethical considerations, and pathways for women in technology leadership.",
     images: [
-      "/images/conferences/ai-1.jpg",
-      "/images/conferences/ai-2.jpg",
-      "/images/conferences/ai-3.jpg",
+      "/images/conferences/ai-1.jpg.jpeg",
+      "/images/conferences/ai-2.jpg.jpeg",
+      "/images/conferences/ai-3.jpg.jpeg",
+    ],
+  },
+  {
+    name: "Ardhi University Innovation Week",
+    year: "2026",
+    description:
+      "Innovation, technology, entrepreneurship, and collaborative solutions addressing real-world challenges.",
+    images: [
+      "/images/conferences/ardhi-innovation-1.jpeg",
+      "/images/conferences/ardhi-innovation-2.jpeg",
+      "/images/conferences/ardhi-innovation-3.jpeg",
+      "/images/conferences/ardhi-innovation-4.jpeg",
+      "/images/conferences/ardhi-innovation-5.jpeg",
     ],
   },
 ];
