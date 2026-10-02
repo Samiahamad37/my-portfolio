@@ -213,8 +213,6 @@ export const education = [
       "Graduated with a focus on software engineering, database systems, information systems design, and enterprise application development.",
   },
 ];
-
-
 export const conferences = [
   {
     name: "DjangoCon Arusha 2025",
@@ -224,7 +222,7 @@ export const conferences = [
     images: [
       "/images/conferences/djangocon-1.jpg",
       "/images/conferences/djangocon-2.jpg",
-      "/images/conferences/djangocon-3.jpg",
+      "/images/conferences/djangocon-3.png",
     ],
   },
   {
