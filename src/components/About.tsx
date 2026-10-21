@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { aboutSummary, conferences, education, siteConfig } from "@/data/portfolio";
+import { aboutSummary, conferences, education, siteConfig, stats } from "@/data/portfolio";
 import SectionHeader from "@/components/ui/SectionHeader";
 import ProfileImage from "@/components/ui/ProfileImage";
 
@@ -34,13 +34,16 @@ export default function About() {
                 </p>
               ))}
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="card p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary-light">
-                    Location
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-white">{siteConfig.location}</p>
-                </div>
+              <div className="grid grid-cols-3 gap-3">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-primary/10 bg-primary-muted px-3 py-4 text-center"
+                  >
+                    <p className="text-lg font-bold text-cta sm:text-xl">{stat.value}</p>
+                    <p className="mt-1 text-[11px] leading-tight text-zinc-500">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 

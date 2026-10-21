@@ -1,10 +1,8 @@
-import { siteConfig, skills, stats } from "@/data/portfolio";
+import { siteConfig } from "@/data/portfolio";
 import SocialLinks from "@/components/ui/SocialLinks";
 import IdBadge from "@/components/ui/IdBadge";
 
 export default function Hero() {
-  const topSkills = skills.flatMap((g) => g.items).slice(0, 8);
-
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24 pb-16">
       <div className="pointer-events-none absolute inset-0">
@@ -57,22 +55,6 @@ export default function Hero() {
             <SocialLinks />
           </div>
 
-          <div className="mt-10 grid max-w-lg grid-cols-3 gap-3 animate-fade-in-up animation-delay-400">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl border border-primary/10 bg-primary-muted px-3 py-4 text-center">
-                <p className="text-lg font-bold text-cta sm:text-xl">{stat.value}</p>
-                <p className="mt-1 text-[11px] leading-tight text-zinc-500">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 flex max-w-lg flex-wrap gap-2 animate-fade-in-up animation-delay-400">
-            {topSkills.map((skill) => (
-              <span key={skill} className="rounded-lg border border-white/8 bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-zinc-300">
-                {skill}
-              </span>
-            ))}
-          </div>
         </div>
 
         <div className="animate-fade-in animation-delay-200 lg:-mt-24 lg:self-start">
