@@ -75,7 +75,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="animate-fade-in animation-delay-200">
+        <div className="animate-fade-in animation-delay-200 lg:-mt-24 lg:self-start">
           <IdBadge />
         </div>
       </div>

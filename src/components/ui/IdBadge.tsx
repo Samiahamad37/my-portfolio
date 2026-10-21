@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { animate, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { animate, motion, type AnimationPlaybackControls, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { siteConfig } from "@/data/portfolio";
 
 // How long the lanyard strap is above the card (px)
-const STRAP = 150;
+const STRAP = 210;
 
 /**
  * Hanging ID badge for the hero.
@@ -35,13 +35,38 @@ export default function IdBadge() {
 
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Drop in from above with a little swing
+  // Idle "cheza cheza": a slow pendulum sway that never stops on its own
+  const sway = useRef<AnimationPlaybackControls | null>(null);
+  const resume = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function startSway(delay = 0) {
+    if (resume.current) clearTimeout(resume.current);
+    resume.current = setTimeout(() => {
+      sway.current?.stop();
+      // ease gently from wherever it is into the swing
+      sway.current = animate(x, [x.get(), 26, -26, 0], {
+        duration: 3.2,
+        ease: "easeInOut",
+        times: [0, 0.25, 0.75, 1],
+        repeat: Infinity,
+      });
+    }, delay);
+  }
+
+  function stopSway() {
+    if (resume.current) clearTimeout(resume.current);
+    sway.current?.stop();
+  }
+
+  // Drop in from above with a bouncy swing, then keep swaying
   useEffect(() => {
-    x.set(60);
+    x.set(80);
     const a = animate(y, 0, { type: "spring", stiffness: 120, damping: 9, delay: 0.3 });
     const b = animate(x, 0, { type: "spring", stiffness: 60, damping: 4, delay: 0.3 });
-    return () => { a.stop(); b.stop(); };
-  }, [x, y]);
+    startSway(2600);
+    return () => { a.stop(); b.stop(); stopSway(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function onPointerMove(e: React.PointerEvent) {
     const r = cardRef.current?.getBoundingClientRect();
@@ -54,15 +79,22 @@ export default function IdBadge() {
     shineY.set(py * 100);
   }
 
+  function onPointerEnter(e: React.PointerEvent) {
+    stopSway();
+    // the cursor "bumps" the badge in the direction it came from
+    const r = cardRef.current?.getBoundingClientRect();
+    const fromLeft = r ? e.clientX < r.left + r.width / 2 : true;
+    animate(x, x.get() + (fromLeft ? 30 : -30), { type: "spring", stiffness: 90, damping: 6 });
+  }
+
   function onPointerLeave() {
     tiltX.set(0);
     tiltY.set(0);
-    // a small nudge so it sways when the cursor brushes past
-    animate(x, [0, x.get() + 18, 0], { type: "spring", stiffness: 80, damping: 5 });
+    startSway(1200);
   }
 
   return (
-    <div className="relative mx-auto flex h-[600px] w-full max-w-sm justify-center select-none" style={{ perspective: 1200 }}>
+    <div className="relative mx-auto flex h-[640px] w-full max-w-sm justify-center select-none" style={{ perspective: 1200 }}>
       {/* Clip at the top */}
       <div className="absolute top-0 z-20 h-5 w-14 rounded-b-lg bg-gradient-to-b from-zinc-500 to-zinc-700 shadow-md" />
 
@@ -83,6 +115,8 @@ export default function IdBadge() {
         dragElastic={0.6}
         dragTransition={{ bounceStiffness: 140, bounceDamping: 7 }}
         whileDrag={{ cursor: "grabbing" }}
+        onDragStart={stopSway}
+        onDragEnd={() => startSway(2200)}
         style={{ x, y, rotate: cardRotate, top: STRAP, transformOrigin: "50% 0%" }}
         className="absolute z-30 cursor-grab touch-none"
       >
@@ -91,6 +125,7 @@ export default function IdBadge() {
 
         <motion.div
           ref={cardRef}
+          onPointerEnter={onPointerEnter}
           onPointerMove={onPointerMove}
           onPointerLeave={onPointerLeave}
           style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
@@ -149,7 +184,7 @@ export default function IdBadge() {
         </motion.div>
       </motion.div>
 
-      <p className="absolute bottom-0 text-xs text-zinc-500">Drag me ↕</p>
+      <p className="absolute bottom-0 text-xs text-zinc-500">Grab me and throw ↔</p>
     </div>
   );
 }
