@@ -1,0 +1,155 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { animate, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { siteConfig } from "@/data/portfolio";
+
+// How long the lanyard strap is above the card (px)
+const STRAP = 150;
+
+/**
+ * Hanging ID badge for the hero.
+ * - Drops in on load and swings into place
+ * - Drag / throw it: the strap follows and it swings back on a spring
+ * - Hover: 3D tilt + light shine that follows the cursor
+ */
+export default function IdBadge() {
+  // Where the card's top-centre is, relative to its resting point
+  const x = useMotionValue(0);
+  const y = useMotionValue(-420);
+
+  // Strap geometry, computed from the card position
+  const strapAngle = useTransform(() => Math.atan2(x.get(), STRAP + y.get()) * (180 / Math.PI));
+  const strapLength = useTransform(() => Math.max(40, Math.hypot(x.get(), STRAP + y.get())));
+  const cardRotate = useTransform(() => -strapAngle.get());
+
+  // Hover tilt
+  const tiltX = useSpring(0, { stiffness: 200, damping: 18 });
+  const tiltY = useSpring(0, { stiffness: 200, damping: 18 });
+  const shineX = useMotionValue(50);
+  const shineY = useMotionValue(30);
+  const shine = useTransform(
+    () => `radial-gradient(circle at ${shineX.get()}% ${shineY.get()}%, rgba(255,255,255,0.28), transparent 55%)`
+  );
+
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Drop in from above with a little swing
+  useEffect(() => {
+    x.set(60);
+    const a = animate(y, 0, { type: "spring", stiffness: 120, damping: 9, delay: 0.3 });
+    const b = animate(x, 0, { type: "spring", stiffness: 60, damping: 4, delay: 0.3 });
+    return () => { a.stop(); b.stop(); };
+  }, [x, y]);
+
+  function onPointerMove(e: React.PointerEvent) {
+    const r = cardRef.current?.getBoundingClientRect();
+    if (!r) return;
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    tiltY.set((px - 0.5) * 22);
+    tiltX.set((0.5 - py) * 22);
+    shineX.set(px * 100);
+    shineY.set(py * 100);
+  }
+
+  function onPointerLeave() {
+    tiltX.set(0);
+    tiltY.set(0);
+    // a small nudge so it sways when the cursor brushes past
+    animate(x, [0, x.get() + 18, 0], { type: "spring", stiffness: 80, damping: 5 });
+  }
+
+  return (
+    <div className="relative mx-auto flex h-[600px] w-full max-w-sm justify-center select-none" style={{ perspective: 1200 }}>
+      {/* Clip at the top */}
+      <div className="absolute top-0 z-20 h-5 w-14 rounded-b-lg bg-gradient-to-b from-zinc-500 to-zinc-700 shadow-md" />
+
+      {/* Strap */}
+      <motion.div
+        className="absolute top-3 z-10 w-6 origin-top"
+        style={{ height: strapLength, rotate: strapAngle }}
+      >
+        <div className="h-full w-full bg-gradient-to-r from-primary/80 via-primary-light to-primary/80 shadow-[0_0_12px_rgba(201,149,106,0.35)]">
+          <div className="h-full w-full bg-[repeating-linear-gradient(180deg,transparent_0_14px,rgba(0,0,0,0.12)_14px_16px)]" />
+        </div>
+      </motion.div>
+
+      {/* Card — dragging moves the top-centre point */}
+      <motion.div
+        drag
+        dragSnapToOrigin
+        dragElastic={0.6}
+        dragTransition={{ bounceStiffness: 140, bounceDamping: 7 }}
+        whileDrag={{ cursor: "grabbing" }}
+        style={{ x, y, rotate: cardRotate, top: STRAP, transformOrigin: "50% 0%" }}
+        className="absolute z-30 cursor-grab touch-none"
+      >
+        {/* Ring that joins strap and card */}
+        <div className="mx-auto -mb-2 h-6 w-10 rounded-t-full border-4 border-b-0 border-zinc-400" />
+
+        <motion.div
+          ref={cardRef}
+          onPointerMove={onPointerMove}
+          onPointerLeave={onPointerLeave}
+          style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+          className="relative w-[270px] overflow-hidden rounded-2xl border border-white/10 bg-surface-card shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]"
+        >
+          {/* Slot punched for the clip */}
+          <div className="absolute left-1/2 top-3 z-20 h-2 w-12 -translate-x-1/2 rounded-full bg-surface" />
+
+          {/* Header band */}
+          <div className="bg-gradient-to-r from-primary to-primary-light px-5 pb-3 pt-7 text-surface">
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em]">Developer Pass</p>
+            <p className="text-xs font-medium opacity-80">{siteConfig.location}</p>
+          </div>
+
+          {/* Photo */}
+          <div className="px-5 pt-5">
+            <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-xl ring-2 ring-primary/40">
+              <Image
+                src={siteConfig.profileImage}
+                alt={`${siteConfig.name} — professional headshot`}
+                fill
+                priority
+                draggable={false}
+                sizes="160px"
+                className="pointer-events-none object-cover object-top"
+              />
+            </div>
+          </div>
+
+          {/* Details */}
+          <div className="px-5 pb-5 pt-4 text-center">
+            <p className="text-lg font-bold text-white">{siteConfig.name}</p>
+            <p className="text-sm text-primary-light">{siteConfig.title}</p>
+
+            <div className="mt-4 grid grid-cols-2 gap-2 text-left text-[11px]">
+              <div className="rounded-lg bg-white/[0.04] px-3 py-2">
+                <p className="text-zinc-500">Education</p>
+                <p className="font-semibold text-zinc-200">BSc ISM · Ardhi</p>
+              </div>
+              <div className="rounded-lg bg-white/[0.04] px-3 py-2">
+                <p className="text-zinc-500">ID No.</p>
+                <p className="font-semibold text-zinc-200">SAH-2026</p>
+              </div>
+            </div>
+
+            {/* Barcode */}
+            <div className="mt-4 flex h-8 items-end justify-center gap-[2px] opacity-70">
+              {"3142516271828182845904523536".split("").map((n, i) => (
+                <span key={i} className="bg-zinc-300" style={{ width: (Number(n) % 3) + 1, height: "100%" }} />
+              ))}
+            </div>
+          </div>
+
+          {/* Shine that follows the cursor */}
+          <motion.div className="pointer-events-none absolute inset-0 mix-blend-overlay" style={{ background: shine }} />
+        </motion.div>
+      </motion.div>
+
+      <p className="absolute bottom-0 text-xs text-zinc-500">Drag me ↕</p>
+    </div>
+  );
+}
