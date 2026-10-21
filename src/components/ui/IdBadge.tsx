@@ -20,9 +20,11 @@ export default function IdBadge() {
   const y = useMotionValue(-420);
 
   // Strap geometry, computed from the card position
-  const strapAngle = useTransform(() => Math.atan2(x.get(), STRAP + y.get()) * (180 / Math.PI));
+  // Negative = the strap leans toward the side the card has swung to
+  const strapAngle = useTransform(() => -Math.atan2(x.get(), STRAP + y.get()) * (180 / Math.PI));
   const strapLength = useTransform(() => Math.max(40, Math.hypot(x.get(), STRAP + y.get())));
-  const cardRotate = useTransform(() => -strapAngle.get());
+  // The card stays in line with the strap, like a real badge on a kamba
+  const cardRotate = useTransform(() => strapAngle.get());
 
   // Hover tilt
   const tiltX = useSpring(0, { stiffness: 200, damping: 18 });
@@ -100,7 +102,7 @@ export default function IdBadge() {
 
       {/* Strap */}
       <motion.div
-        className="absolute top-3 z-10 w-6 origin-top"
+        className="absolute top-0 z-10 w-6 origin-top"
         style={{ height: strapLength, rotate: strapAngle }}
       >
         <div className="h-full w-full bg-gradient-to-r from-primary/80 via-primary-light to-primary/80 shadow-[0_0_12px_rgba(201,149,106,0.35)]">
@@ -118,7 +120,7 @@ export default function IdBadge() {
         onDragStart={stopSway}
         onDragEnd={() => startSway(2200)}
         style={{ x, y, rotate: cardRotate, top: STRAP, transformOrigin: "50% 0%" }}
-        className="absolute z-30 cursor-grab touch-none"
+        className="pointer-events-auto absolute z-30 cursor-grab touch-none"
       >
         {/* Ring that joins strap and card */}
         <div className="mx-auto -mb-2 h-6 w-10 rounded-t-full border-4 border-b-0 border-zinc-400" />
@@ -184,7 +186,7 @@ export default function IdBadge() {
         </motion.div>
       </motion.div>
 
-      <p className="absolute bottom-0 text-xs text-zinc-500">Grab me and throw ↔</p>
+      <p className="pointer-events-auto absolute bottom-0 text-xs text-zinc-500">Grab me and throw ↔</p>
     </div>
   );
 }

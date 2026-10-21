@@ -18,6 +18,15 @@ export default function Hero() {
         />
       </div>
 
+      {/* Desktop: the lanyard hangs from just under the navbar */}
+      <div className="pointer-events-none absolute inset-x-0 top-[68px] z-10 hidden animate-fade-in animation-delay-200 lg:block">
+        <div className="mx-auto flex max-w-6xl justify-end px-6">
+          <div className="w-[26rem]">
+            <IdBadge />
+          </div>
+        </div>
+      </div>
+
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-zinc-500 animate-fade-in-up">
@@ -57,9 +66,12 @@ export default function Hero() {
 
         </div>
 
-        <div className="animate-fade-in animation-delay-200 lg:-mt-24 lg:self-start">
+        {/* Phones / tablets: badge sits under the text */}
+        <div className="animate-fade-in animation-delay-200 lg:hidden">
           <IdBadge />
         </div>
+        {/* Desktop: keeps the right column free for the hanging badge */}
+        <div className="hidden lg:block" aria-hidden />
       </div>
     </section>
   );
